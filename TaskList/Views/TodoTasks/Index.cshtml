@@ -1,4 +1,7 @@
-﻿@model IEnumerable<TaskList.TodoTask>
+﻿@model IEnumerable<TaskList.Models.TodoTask>
+@*@model PagedList.IPagedList<TaskList.Models.TodoTask>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 @{
     ViewBag.Title = "Index";
@@ -43,3 +46,9 @@
 }
 
 </table>
+@*Page @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber) of
+@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new {
+        page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter
+    }))*@

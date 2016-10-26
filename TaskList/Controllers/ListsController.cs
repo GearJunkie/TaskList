@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TaskList;
 using TaskList.DAL;
+using TaskList.Models;
 
 namespace TaskList.Controllers
 {

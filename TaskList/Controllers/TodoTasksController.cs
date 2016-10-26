@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using TaskList;
 using TaskList.DAL;
+using TaskList.Models;
 
 namespace TaskList.Controllers
 {
