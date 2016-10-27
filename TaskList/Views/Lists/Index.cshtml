@@ -1,7 +1,8 @@
-﻿@*@model IEnumerable<TaskList.List>*@
-@model PagedList.IPagedList<TaskList.Models.List>
+﻿@model IEnumerable<TaskList.Models.List>
+@*@model TaskList.Models.List
     @using PagedList.Mvc;
-    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@using PagedList;
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 @{
     ViewBag.Title = "Lists";
@@ -13,20 +14,12 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@using (Html.BeginForm("Index", "List", FormMethod.Get))
-{
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
-}
-
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ListName)
+           @Html.ActionLink("List Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
-        <th></th>
+        <th>List Name</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -43,9 +36,9 @@
 }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber) of
+@*Page @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber) of
     @Model.PageCount
     @Html.PagedListPager(Model, page => Url.Action("Index",
         new {
             page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter
-        }))
+        }))*@

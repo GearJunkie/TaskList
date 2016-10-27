@@ -18,17 +18,17 @@ namespace TaskList.Migrations
         protected override void Seed(TaskList.DAL.TodoTaskDbContext context)
         {
             var lists = new List<List> {
-                new List { ListName = "Groceries" },
-                new List { ListName = "Errands" },
-                new List {ListName = "List1" },
-                new List {ListName = "List2" },
-                new List {ListName = "List3" },
-                new List {ListName = "List4" },
-                new List {ListName = "List5" },
-                new List {ListName = "List6" },
-                new List {ListName = "List7" }
+                new List { ListName = "Groceries", DateCreated = DateTime.Parse("2016-10-01") },
+                new List { ListName = "Errands", DateCreated = DateTime.Parse("2016-10-01") },
+                new List {ListName = "List1", DateCreated = DateTime.Parse("2016-10-01") },
+                new List {ListName = "List2", DateCreated = DateTime.Parse("2016-09-05") },
+                new List {ListName = "List3", DateCreated = DateTime.Parse("2016-09-05") },
+                new List {ListName = "List4", DateCreated = DateTime.Parse("2016-09-05") },
+                new List {ListName = "List5", DateCreated = DateTime.Parse("2016-11-20") },
+                new List {ListName = "List6", DateCreated = DateTime.Parse("2016-11-20") },
+                new List {ListName = "List7", DateCreated = DateTime.Parse("2016-11-20") }
             };
-            lists.ForEach(s => context.Lists.AddOrUpdate(p => p.ListName, s));
+            lists.ForEach(s => context.Lists.AddOrUpdate(p => p.ListName,  s));
             context.SaveChanges();
 
             var TodoTasks = new List<TodoTask>
@@ -41,21 +41,21 @@ namespace TaskList.Migrations
                 new TodoTask { Task = "Hot Sauce", ListID = lists.Single(s => s.ListName == "Groceries").ListID},
                 new TodoTask { Task = "White Rice", ListID = lists.Single(s => s.ListName == "Groceries").ListID},
                 new TodoTask { Task = "Noodles", ListID = lists.Single(s => s.ListName == "Groceries").ListID},
-                new TodoTask { Task = "Task1", ListID = lists.Single(s => s.ListName == "List1").ListID},
-                new TodoTask { Task = "Task2", ListID = lists.Single(s => s.ListName == "List1").ListID},
-                new TodoTask { Task = "Task3", ListID = lists.Single(s => s.ListName == "List1").ListID},
-                new TodoTask { Task = "Task4", ListID = lists.Single(s => s.ListName == "List1").ListID},
-                new TodoTask { Task = "Task5", ListID = lists.Single(s => s.ListName == "List1").ListID},
-                new TodoTask { Task = "Task1", ListID = lists.Single(s => s.ListName == "List2").ListID},
-                new TodoTask { Task = "Task2", ListID = lists.Single(s => s.ListName == "List2").ListID},
-                new TodoTask { Task = "Task3", ListID = lists.Single(s => s.ListName == "List2").ListID},
-                new TodoTask { Task = "Task4", ListID = lists.Single(s => s.ListName == "List2").ListID},
-                new TodoTask { Task = "Task5", ListID = lists.Single(s => s.ListName == "List2").ListID},
-                new TodoTask { Task = "Task1", ListID = lists.Single(s => s.ListName == "List3").ListID},
-                new TodoTask { Task = "Task2", ListID = lists.Single(s => s.ListName == "List3").ListID},
-                new TodoTask { Task = "Task3", ListID = lists.Single(s => s.ListName == "List3").ListID},
-                new TodoTask { Task = "Task4", ListID = lists.Single(s => s.ListName == "List3").ListID},
-                new TodoTask { Task = "Task5", ListID = lists.Single(s => s.ListName == "List3").ListID}
+                new TodoTask { Task = "Task4-1", ListID = lists.Single(s => s.ListName == "List4").ListID},
+                new TodoTask { Task = "Task4-2", ListID = lists.Single(s => s.ListName == "List4").ListID},
+                new TodoTask { Task = "Task4-3", ListID = lists.Single(s => s.ListName == "List4").ListID},
+                new TodoTask { Task = "Task4-4", ListID = lists.Single(s => s.ListName == "List4").ListID},
+                new TodoTask { Task = "Task4-5", ListID = lists.Single(s => s.ListName == "List4").ListID},
+                new TodoTask { Task = "Task5-1", ListID = lists.Single(s => s.ListName == "List5").ListID},
+                new TodoTask { Task = "Task5-2", ListID = lists.Single(s => s.ListName == "List5").ListID},
+                new TodoTask { Task = "Task5-3", ListID = lists.Single(s => s.ListName == "List5").ListID},
+                new TodoTask { Task = "Task5-4", ListID = lists.Single(s => s.ListName == "List5").ListID},
+                new TodoTask { Task = "Task5-5", ListID = lists.Single(s => s.ListName == "List5").ListID},
+                new TodoTask { Task = "Task6-1", ListID = lists.Single(s => s.ListName == "List6").ListID},
+                new TodoTask { Task = "Task6-2", ListID = lists.Single(s => s.ListName == "List6").ListID},
+                new TodoTask { Task = "Task6-3", ListID = lists.Single(s => s.ListName == "List6").ListID},
+                new TodoTask { Task = "Task6-4", ListID = lists.Single(s => s.ListName == "List6").ListID},
+                new TodoTask { Task = "Task6-5", ListID = lists.Single(s => s.ListName == "List6").ListID}
             };
             TodoTasks.ForEach(s => context.TodoTasks.AddOrUpdate(p => p.Task, s));
             context.SaveChanges();

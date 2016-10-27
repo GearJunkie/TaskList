@@ -196,6 +196,38 @@
     <Compile Include="Migrations\201610261853028_InitialSeed1.Designer.cs">
       <DependentUpon>201610261853028_InitialSeed1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610271841118_dataAnnotations.cs" />
+    <Compile Include="Migrations\201610271841118_dataAnnotations.Designer.cs">
+      <DependentUpon>201610271841118_dataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271845144_dataAnnotations1.cs" />
+    <Compile Include="Migrations\201610271845144_dataAnnotations1.Designer.cs">
+      <DependentUpon>201610271845144_dataAnnotations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271846279_dataAnnotation.cs" />
+    <Compile Include="Migrations\201610271846279_dataAnnotation.Designer.cs">
+      <DependentUpon>201610271846279_dataAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271850051_DataAnnotation1.cs" />
+    <Compile Include="Migrations\201610271850051_DataAnnotation1.Designer.cs">
+      <DependentUpon>201610271850051_DataAnnotation1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271856357_DA.cs" />
+    <Compile Include="Migrations\201610271856357_DA.Designer.cs">
+      <DependentUpon>201610271856357_DA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271909118_DA2.cs" />
+    <Compile Include="Migrations\201610271909118_DA2.Designer.cs">
+      <DependentUpon>201610271909118_DA2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271916117_DA3.cs" />
+    <Compile Include="Migrations\201610271916117_DA3.Designer.cs">
+      <DependentUpon>201610271916117_DA3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610271939236_DA1.cs" />
+    <Compile Include="Migrations\201610271939236_DA1.Designer.cs">
+      <DependentUpon>201610271939236_DA1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\List.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -292,6 +324,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610261853028_InitialSeed1.resx">
       <DependentUpon>201610261853028_InitialSeed1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271841118_dataAnnotations.resx">
+      <DependentUpon>201610271841118_dataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271845144_dataAnnotations1.resx">
+      <DependentUpon>201610271845144_dataAnnotations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271846279_dataAnnotation.resx">
+      <DependentUpon>201610271846279_dataAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271850051_DataAnnotation1.resx">
+      <DependentUpon>201610271850051_DataAnnotation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271856357_DA.resx">
+      <DependentUpon>201610271856357_DA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271909118_DA2.resx">
+      <DependentUpon>201610271909118_DA2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271916117_DA3.resx">
+      <DependentUpon>201610271916117_DA3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610271939236_DA1.resx">
+      <DependentUpon>201610271939236_DA1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TaskList;
 using TaskList.DAL;
 using TaskList.Models;
+using PagedList;
 
 namespace TaskList.Controllers
 {
@@ -17,9 +17,30 @@ namespace TaskList.Controllers
         private TodoTaskDbContext db = new TodoTaskDbContext();
 
         // GET: Lists
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Lists.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var lists = from s in db.Lists
+                           select s;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    lists = lists.OrderByDescending(s => s.ListName);
+                    break;
+                //case "Date":
+                //    lists = lists.OrderBy(s => s.DateCreated);
+                //    break;
+                //case "date_desc":
+                //    lists = lists.OrderByDescending(s => s.DateCreated);
+                //    break;
+                default:
+                    lists = lists.OrderBy(s => s.ListName);
+                    break;
+            }
+
+            return View(lists.ToList());
         }
 
         // GET: Lists/Details/5
