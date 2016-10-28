@@ -20,7 +20,7 @@
         <input type="submit" value="Search" />
     </p>
 }
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
            @Html.ActionLink("List Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -31,7 +31,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
         <td>
             @Html.DisplayFor(modelItem => item.ListName)
         </td>
@@ -44,10 +44,11 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.ListID })
         </td>
     </tr>
-}
-
+}   
 </table>
 Page @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber) of @Model.PageCount
    
 @Html.PagedListPager(Model, page => Url.Action("Index",
         new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
