@@ -17,10 +17,23 @@ namespace TaskList.Controllers
         private TodoTaskDbContext db = new TodoTaskDbContext();
 
         // GET: Lists
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var lists = from s in db.Lists
                            select s;
 
@@ -29,18 +42,20 @@ namespace TaskList.Controllers
                 case "name_desc":
                     lists = lists.OrderByDescending(s => s.ListName);
                     break;
-                //case "Date":
-                //    lists = lists.OrderBy(s => s.DateCreated);
-                //    break;
-                //case "date_desc":
-                //    lists = lists.OrderByDescending(s => s.DateCreated);
-                //    break;
+                case "Date":
+                    lists = lists.OrderBy(s => s.DateCreated);
+                    break;
+                case "date_desc":
+                    lists = lists.OrderByDescending(s => s.DateCreated);
+                    break;
                 default:
                     lists = lists.OrderBy(s => s.ListName);
                     break;
             }
-
-            return View(lists.ToList());
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(lists.ToPagedList(pageNumber, pageSize));
+            //return View(lists.ToList());
         }
 
         // GET: Lists/Details/5
